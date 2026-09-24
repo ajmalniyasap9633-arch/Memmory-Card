@@ -23,17 +23,20 @@ jobs:
         with:
           node-version: 24
           cache: npm
+          cache-dependency-path: cardgame/package-lock.json
 
       - name: Install dependencies
+        working-directory: cardgame
         run: npm ci
 
       - name: Build React app
+        working-directory: cardgame
         run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          path: ./cardgame/dist
 
   deploy:
     needs: build
