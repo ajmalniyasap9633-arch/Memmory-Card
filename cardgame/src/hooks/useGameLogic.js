@@ -9,18 +9,18 @@ export function useGameLogic(cardValues) {
     const [locked, setLocked] = useState(false)
 
     const clickSound = useRef(
-        new Audio("/whoop.mp3")
+        new Audio(`${import.meta.env.BASE_URL}whoop.mp3`)
     );
 
     const startSound = useRef(
-        new Audio("/win.mp3")
+        new Audio(`${import.meta.env.BASE_URL}win.mp3`)
     );
 
     const wrongSound = useRef(
-        new Audio("/fail.mp3")
+        new Audio(`${import.meta.env.BASE_URL}fail.mp3`)
     );
     const win = useRef(
-        new Audio("/win.mp3")
+        new Audio(`${import.meta.env.BASE_URL}win.mp3`)
     )
     function playsound(sound) {
         sound.current.currentTime = 0
